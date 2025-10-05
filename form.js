@@ -26,7 +26,7 @@ function initForms() {
             
             try {
                 // Send to Formspree (FREE service)
-                const response = await fetch('https://formspree.io/f/xqkrgvwe', {
+                const response = await fetch('https://formspree.io/f/mqayldea', {
                     method: 'POST',
                     body: formData,
                     headers: {
@@ -115,3 +115,4 @@ function showFormMessage(form, message, type) {
         }, 5000);
     }
 }
+
