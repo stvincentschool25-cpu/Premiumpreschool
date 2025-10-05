@@ -113,5 +113,111 @@
     <script src="js/form.js"></script>
     <script src="js/sliders.js"></script>
     <script src="js/carvas.js"></script>
+
+
+    <!-- Booking & Contact Section -->
+<section id="book-tour" class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="bg-red-50 p-8 md:p-12 rounded-2xl shadow-2xl grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Ready to Take the Next Step?</h2>
+                <p class="text-gray-600 mt-4">Visit our campus to experience The Learning Curve difference. Fill out the form to schedule a personalized tour. We can't wait to meet you and your little one!</p>
+                <div class="mt-8 space-y-4">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="map-pin" class="w-8 h-8 text-red-500 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Our Address</h4>
+                            <p class="text-gray-600">XH5F+G94, Papamma Guda, Chanda Nagar, Hyderabad, Telangana 500050</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="phone-call" class="w-8 h-8 text-red-500 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Call for Inquiries</h4>
+                            <a href="tel:9100999312" class="text-gray-600 hover:text-red-500">091009 99312</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="clock" class="w-8 h-8 text-red-500 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800">School Hours</h4>
+                            <p class="text-gray-600">Monday - Saturday: 8:30 AM - 6:30 PM</p>
+                            <p class="text-gray-500 text-sm">Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <!-- Updated Form with Formspree -->
+                <form id="tour-form" class="space-y-4 bg-white p-8 rounded-xl shadow-inner" action="https://formspree.io/f/YOUR_FORMSPREE_FORM_ID" method="POST">
+                    <input type="hidden" name="_subject" value="New Tour Booking - The Learning Curve">
+                    <input type="hidden" name="_cc" value="optional-email@example.com">
+                    
+                    <div>
+                        <label for="parentName" class="font-medium text-gray-700">Parent's Name *</label>
+                        <input type="text" id="parentName" name="parentName" class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400" required>
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="font-medium text-gray-700">Email Address *</label>
+                        <input type="email" id="email" name="email" class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400" required>
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="font-medium text-gray-700">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400" required>
+                    </div>
+                    
+                    <div>
+                        <label for="childName" class="font-medium text-gray-700">Child's Name</label>
+                        <input type="text" id="childName" name="childName" class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400">
+                    </div>
+                    
+                    <div>
+                        <label for="childAge" class="font-medium text-gray-700">Child's Age *</label>
+                        <select id="childAge" name="childAge" class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400" required>
+                            <option value="">Select Age Group</option>
+                            <option value="1.5-2.5">1.5 - 2.5 years (Playgroup)</option>
+                            <option value="2.5-3.5">2.5 - 3.5 years (Nursery)</option>
+                            <option value="3.5-4.5">3.5 - 4.5 years (LKG)</option>
+                            <option value="4.5-5.5">4.5 - 5.5 years (UKG)</option>
+                            <option value="5.5+">5.5+ years (Daycare)</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="programInterest" class="font-medium text-gray-700">Program Interest</label>
+                        <select id="programInterest" name="programInterest" class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400">
+                            <option value="">Select Program</option>
+                            <option value="Playgroup">Playgroup</option>
+                            <option value="Nursery">Nursery</option>
+                            <option value="LKG">LKG</option>
+                            <option value="UKG">UKG</option>
+                            <option value="Daycare">Full Day Care</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="preferredDate" class="font-medium text-gray-700">Preferred Tour Date</label>
+                        <input type="date" id="preferredDate" name="preferredDate" class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400">
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="font-medium text-gray-700">Your Message (Optional)</label>
+                        <textarea id="message" name="message" rows="3" class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400" placeholder="Any specific questions or requirements..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-red-500 text-white font-bold text-lg p-4 rounded-lg hover:bg-red-600 transition-colors shadow-lg">
+                        Schedule Campus Tour
+                    </button>
+                    
+                    <div id="form-success-message" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded hidden mt-4">
+                        Thank you! We will contact you within 24 hours to schedule your tour.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
 </html>
