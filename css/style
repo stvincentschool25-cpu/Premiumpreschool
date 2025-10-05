@@ -1,32 +1,36 @@
-/* Base Styles */
-body {
-    font-family: 'Poppins', sans-serif;
-}
+/* style.css - Main stylesheet */
 
-.font-family-lora {
-    font-family: 'Lora', serif;
-}
-
-/* Container Styles */
-.container-narrow {
+.container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
-.section-padding {
-    padding: 5rem 0;
+h1 {
+    text-align: center;
+    margin: 2rem 0;
+    color: #333;
+    font-size: 2.5rem;
 }
 
-/* Custom utility classes */
-.text-shadow {
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
 }
 
-.hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-lift:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+/* Responsive design */
+@media (max-width: 768px) {
+    .form-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
 }
