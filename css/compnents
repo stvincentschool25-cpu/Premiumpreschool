@@ -116,3 +116,50 @@
 .modal-overlay.active .modal-content {
     transform: scale(1);
 }
+
+/* Form specific styles */
+.error-message {
+    background-color: #fed7d7;
+    border-color: #feb2b2;
+    color: #c53030;
+}
+
+.success-message {
+    background-color: #c6f6d5;
+    border-color: #9ae6b4;
+    color: #276749;
+}
+
+/* Form validation styles */
+input:invalid, select:invalid, textarea:invalid {
+    border-color: #fc8181;
+}
+
+input:valid, select:valid, textarea:valid {
+    border-color: #68d391;
+}
+
+/* Loading state */
+.btn-loading {
+    position: relative;
+    color: transparent;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
