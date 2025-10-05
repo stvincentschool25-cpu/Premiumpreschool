@@ -5,26 +5,57 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize all functionality
     initializeNavigation();
+    initializeSmoothScrolling();
     initializeAnimations();
-    initializeApp();
 });
 
 function initializeNavigation() {
     // Mobile navigation toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
     
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', function() {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            // Update icon
+            const icon = menuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
         });
     }
     
     // Close mobile menu when clicking on a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
         link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                navLinks.style.display = 'none';
+            mobileMenu.classList.remove('active');
+            const icon = menuBtn.querySelector('i');
+            icon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+        });
+    });
+}
+
+function initializeSmoothScrolling() {
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const target = document.querySelector(targetId);
+            if (target) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
             }
         });
     });
@@ -46,17 +77,10 @@ function initializeAnimations() {
     }, observerOptions);
     
     // Observe elements for animation
-    document.querySelectorAll('.feature-card, .course-card, .testimonial-card').forEach(card => {
-        observer.observe(card);
+    document.querySelectorAll('.card, .feature-item, .program-card').forEach(element => {
+        observer.observe(element);
     });
 }
 
-function initializeApp() {
-    // Add any additional initialization code here
-    console.log('App initialized');
-    
-    // Add loaded class to body for transition effects
-    setTimeout(() => {
-        document.body.classList.add('loaded');
-    }, 100);
-}
+// Initialize Lucide icons
+lucide.createIcons();
