@@ -1,277 +1,145 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Learning Curve | Preschool & Daycare in Chanda Nagar, Hyderabad</title>
+    <title>The Learning Curve</title>
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Local CSS files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="components.css">
     
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/components.css">
-</head>
-<body class="bg-gray-50">
-    <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="flex items-center space-x-2">
-                <svg class="w-10 h-10 text-red-500" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 70 C 30 20, 70 20, 90 70" stroke="url(#logo-gradient)" stroke-width="8" stroke-linecap="round"/>
-                    <defs>
-                        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#EF4444;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <h1 class="text-xl md:text-2xl font-bold text-gray-800">The Learning Curve</h1>
-            </a>
-            <nav class="hidden md:flex items-center space-x-6">
-                 <a href="#programs" class="text-gray-600 hover:text-red-500 font-medium">Programs</a>
-                 <a href="#blogs" class="text-gray-600 hover:text-red-500 font-medium">Parent's Corner</a>
-                 <a href="#book-tour" class="bg-red-500 text-white font-semibold px-5 py-2 rounded-lg hover:bg-red-600 transition-colors">Book a Tour</a>
-            </nav>
-            <button id="menu-btn" class="md:hidden">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4">
-             <a href="#programs" class="block text-center py-2 text-gray-600 hover:text-red-500 font-medium">Programs</a>
-             <a href="#blogs" class="block text-center py-2 text-gray-600 hover:text-red-500 font-medium">Parent's Corner</a>
-             <a href="#book-tour" class="block text-center py-2 text-gray-600 hover:text-red-500 font-medium">Book a Tour</a>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section class="relative bg-white">
-            <div class="container mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-8 items-center">
-                <div class="text-center md:text-left">
-                    <span class="text-red-500 font-semibold">Admissions Open 2025-2026</span>
-                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mt-2 leading-tight">Nurturing Tomorrow's Leaders, Today.</h2>
-                    <p class="text-gray-600 mt-4 text-lg">
-                        Your child's happy place in Chanda Nagar. We offer a fun, safe, and stimulating environment for children aged 1.5 to 5 years.
-                    </p>
-                    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                        <a href="#book-tour" class="bg-red-500 text-white font-bold px-8 py-4 rounded-lg hover:bg-red-600 transition-transform hover:scale-105 shadow-lg text-lg">
-                            Schedule a Visit
-                        </a>
-                        <a href="tel:9100999312" class="bg-blue-500 text-white font-bold px-8 py-4 rounded-lg hover:bg-blue-600 transition-transform hover:scale-105 shadow-lg text-lg flex items-center justify-center gap-2">
-                            <i data-lucide="phone"></i>Call Us Now
-                        </a>
-                    </div>
-                    <div class="mt-6 flex items-center justify-center md:justify-start space-x-2">
-                        <div class="flex text-yellow-400">
-                           <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                           <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                           <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                           <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                           <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                        </div>
-                        <p class="text-sm text-gray-500 font-medium">Rated 4.9/5 by 100+ Parents on Google</p>
-                    </div>
-                </div>
-                <div class="hidden md:block">
-                    <img src="https://lh3.googleusercontent.com/p/AF1QipM5x2p1Y_T1W6yP-k2cZ2e6a_O7aC8-P1eG8sA=s1360-w1360-h1020" alt="Happy children in a classroom at The Learning Curve" class="rounded-2xl shadow-2xl object-cover w-full h-full">
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Choose Us Section -->
-        <section class="py-16 md:py-24 bg-red-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Why Parents Trust The Learning Curve</h2>
-                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">We provide a foundation for lifelong learning through a perfect blend of care, creativity, and curriculum.</p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-2xl hover:-translate-y-2 transition-all">
-                        <div class="bg-red-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto">
-                            <i data-lucide="shield-check" class="w-10 h-10 text-red-500"></i>
-                        </div>
-                        <h3 class="font-bold text-xl mt-6 text-gray-800">Safe & Secure Campus</h3>
-                        <p class="text-gray-600 mt-2 text-sm">CCTV surveillance, child-proofed infrastructure, and rigorous hygiene protocols ensure a safe environment.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-2xl hover:-translate-y-2 transition-all">
-                        <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto">
-                            <i data-lucide="lightbulb" class="w-10 h-10 text-blue-500"></i>
-                        </div>
-                        <h3 class="font-bold text-xl mt-6 text-gray-800">Play-Based Curriculum</h3>
-                        <p class="text-gray-600 mt-2 text-sm">Our curriculum fosters creativity and critical thinking through engaging, hands-on activities.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-2xl hover:-translate-y-2 transition-all">
-                        <div class="bg-yellow-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto">
-                            <i data-lucide="users" class="w-10 h-10 text-yellow-500"></i>
-                        </div>
-                        <h3 class="font-bold text-xl mt-6 text-gray-800">Caring Educators</h3>
-                        <p class="text-gray-600 mt-2 text-sm">Our passionate teachers are dedicated to your child's individual growth and happiness.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-2xl hover:-translate-y-2 transition-all">
-                        <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto">
-                            <i data-lucide="heart-handshake" class="w-10 h-10 text-green-500"></i>
-                        </div>
-                        <h3 class="font-bold text-xl mt-6 text-gray-800">Personalized Attention</h3>
-                        <p class="text-gray-600 mt-2 text-sm">A low student-teacher ratio ensures every child gets the care and guidance they deserve.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Our Programs Section -->
-        <section id="programs" class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Our Programs</h2>
-                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Structured programs designed for holistic development at every age.</p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-                    <!-- Program Cards will be populated by JavaScript -->
-                </div>
-            </div>
-        </section>
+    <style>
+        /* Basic reset and font setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
-        <!-- Gallery Section -->
-        <section class="py-16 md:py-24 bg-red-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">A Glimpse of Our World</h2>
-                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Explore our vibrant classrooms, fun-filled play areas, and engaging activities.</p>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <!-- Gallery images will be populated by JavaScript -->
-                </div>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Form styles */
+        .form-container {
+            max-width: 500px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: #007bff;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .submit-btn:hover {
+            background: #0056b3;
+        }
+        
+        .submit-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        .message {
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Learning Curve</h1>
+        
+        <div class="form-container">
+            <h2>Contact Us</h2>
+            
+            <!-- Success/Error Messages -->
+            <div id="successMessage" class="message success">
+                Thank you! Your message has been sent successfully.
             </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">What Our Parents Say</h2>
-                    <p class="text-gray-600 mt-2">We're proud to be a trusted partner in their child's early education journey.</p>
-                </div>
-                <div class="relative overflow-hidden max-w-3xl mx-auto">
-                    <div class="testimonial-slider" id="testimonial-slider"></div>
-                    <button id="prevBtn" class="absolute top-1/2 left-0 -translate-y-1/2 bg-white/50 p-2 rounded-full shadow-md hover:bg-white transition-colors z-10">
-                        <i data-lucide="chevron-left" class="w-6 h-6 text-gray-700"></i>
-                    </button>
-                    <button id="nextBtn" class="absolute top-1/2 right-0 -translate-y-1/2 bg-white/50 p-2 rounded-full shadow-md hover:bg-white transition-colors z-10">
-                        <i data-lucide="chevron-right" class="w-6 h-6 text-gray-700"></i>
-                    </button>
-                </div>
+            <div id="errorMessage" class="message error">
+                Sorry, there was an error sending your message. Please try again.
             </div>
-        </section>
-
-        <!-- Blogs Section -->
-        <section id="blogs" class="py-16 md:py-24 bg-red-50">
-            <div class="container mx-auto px-6">
-                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Parent's Corner</h2>
-                    <p class="text-gray-600 mt-2 max-w-3xl mx-auto">Guidance and insights for your child's early learning journey.</p>
+            
+            <!-- Contact Form -->
+            <form id="contactForm" action="https://formspree.io/f/mqayldea" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blog-container">
-                    <!-- Blog posts will be populated by JavaScript -->
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
-            </div>
-        </section>
-
-        <!-- Booking & Contact Section -->
-        <section id="book-tour" class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-6">
-                 <div class="bg-red-50 p-8 md:p-12 rounded-2xl shadow-2xl grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Ready to Take the Next Step?</h2>
-                        <p class="text-gray-600 mt-4">Visit our campus to experience The Learning Curve difference. Fill out the form to schedule a personalized tour. We can't wait to meet you and your little one!</p>
-                        <div class="mt-8 space-y-4">
-                            <div class="flex items-start gap-4">
-                                <i data-lucide="map-pin" class="w-8 h-8 text-red-500 mt-1 flex-shrink-0"></i>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">Our Address</h4>
-                                    <p class="text-gray-600">XH5F+G94, Papamma Guda, Chanda Nagar, Hyderabad, Telangana 500050</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <i data-lucide="phone-call" class="w-8 h-8 text-red-500 mt-1 flex-shrink-0"></i>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">Call for Inquiries</h4>
-                                    <a href="tel:9100999312" class="text-gray-600 hover:text-red-500">091009 99312</a>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <i data-lucide="clock" class="w-8 h-8 text-red-500 mt-1 flex-shrink-0"></i>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">School Hours</h4>
-                                    <p class="text-gray-600">Monday - Saturday: 8:30 AM - 6:30 PM</p>
-                                    <p class="text-gray-500 text-sm">Sunday: Closed</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                         <form id="tour-form" class="space-y-4 bg-white p-8 rounded-xl shadow-inner" data-form-type="contact">
-                            <div>
-                                <label for="parentName" class="font-medium text-gray-700">Parent's Name</label>
-                                <input type="text" id="parentName" name="parentName" class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400" required>
-                            </div>
-                            <div>
-                                <label for="phone" class="font-medium text-gray-700">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400" required>
-                            </div>
-                            <div>
-                                <label for="childAge" class="font-medium text-gray-700">Child's Age</label>
-                                <input type="number" id="childAge" name="childAge" min="1" max="8" class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400" required>
-                            </div>
-                            <div>
-                                <label for="message" class="font-medium text-gray-700">Your Message (Optional)</label>
-                                <textarea id="message" name="message" rows="3" class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-400"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-red-500 text-white font-bold text-lg p-4 rounded-lg hover:bg-red-600 transition-colors shadow-lg flex items-center justify-center gap-2">
-                                <span id="submit-text">Submit Inquiry</span>
-                                <div id="submit-spinner" class="spinner hidden"></div>
-                            </button>
-                            <p id="form-success-message" class="text-green-600 text-center font-semibold hidden">Thank you! We will get in touch with you shortly.</p>
-                            <p id="form-error-message" class="text-red-600 text-center font-semibold hidden">There was an error submitting your form. Please try again or call us directly.</p>
-                         </form>
-                    </div>
-                 </div>
-            </div>
-        </section>
-
-        <!-- Map Section -->
-        <section>
-             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.590114092497!2d78.3220496759085!3d17.47879610023249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb938095555555%3A0xe5427a1955b23d90!2sThe%20Learning%20Curve%2C%20Preschool%20%26%20Daycare!5e0!3m2!1sen!2sin!4v1724249122394!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <p>© 2024 The Learning Curve Preschool & Daycare. All Rights Reserved.</p>
-            <p class="text-sm text-gray-400 mt-2">Designed to help your child grow, learn, and shine.</p>
+                
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+            </form>
         </div>
-    </footer>
+    </div>
 
-    <!-- Modals -->
-    <div id="modal-container"></div>
-    <div id="blog-modal-container"></div>
-
-    <!-- JavaScript Files -->
-    <script src="js/main.js"></script>
-    <script src="js/modals.js"></script>
-    <script src="js/sliders.js"></script>
-    <script src="js/forms.js"></script>
+    <script src="main.js"></script>
+    <script src="form.js"></script>
 </body>
 </html>
