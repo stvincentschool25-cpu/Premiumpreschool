@@ -34,7 +34,7 @@ function initForms() {
             
             try {
                 // Send to Formspree (Replace with your actual Formspree form ID)
-                const response = await fetch('https://formspree.io/f/xqkrgvwe', {
+                const response = await fetch('https://formspree.io/f/mqayldea', {
                     method: 'POST',
                     body: new FormData(form),
                     headers: {
