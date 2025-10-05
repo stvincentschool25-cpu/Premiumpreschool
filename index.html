@@ -1,371 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Learning Curve - Unlock Your Potential</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="components.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>The Learning Curve | Preschool & Daycare in Chanda Nagar, Hyderabad</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
 </head>
-<body>
-    <!-- Header & Navigation -->
+<body class="bg-gray-50">
+    <!-- Header -->
     <header class="header">
+        <!-- Header content from your original file -->
         <nav class="nav">
             <div class="nav-brand">
                 <h2>The Learning Curve</h2>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact" class="btn btn-primary">Get Started</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#blogs">Parent's Corner</a></li>
+                <li><a href="#book-tour" class="btn btn-primary">Book a Tour</a></li>
             </ul>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button id="menu-btn" class="md:hidden">
+                <i data-lucide="menu"></i>
+            </button>
         </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu">
+            <!-- Mobile menu links -->
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Unlock Your <span class="text-gradient">Potential</span></h1>
-                <p class="hero-subtitle">Transform your career with our expert-led courses. Learn in-demand skills and advance your professional journey.</p>
-                <div class="hero-actions">
-                    <a href="#courses" class="btn btn-primary btn-large">Explore Courses</a>
-                    <a href="#contact" class="btn btn-secondary btn-large">Free Consultation</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <h3>10,000+</h3>
-                        <p>Students Trained</p>
-                    </div>
-                    <div class="stat">
-                        <h3>50+</h3>
-                        <p>Expert Instructors</p>
-                    </div>
-                    <div class="stat">
-                        <h3>98%</h3>
-                        <p>Success Rate</p>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="floating-card card-1">
-                    <i class="fas fa-laptop-code"></i>
-                    <h4>Web Development</h4>
-                </div>
-                <div class="floating-card card-2">
-                    <i class="fas fa-chart-line"></i>
-                    <h4>Data Science</h4>
-                </div>
-                <div class="floating-card card-3">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h4>Mobile Apps</h4>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <!-- Hero content -->
+        </section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose The Learning Curve?</h2>
-                <p>We provide the best learning experience with cutting-edge technology and expert guidance</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h3>Expert Instructors</h3>
-                    <p>Learn from industry professionals with years of real-world experience</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-laptop-house"></i>
-                    </div>
-                    <h3>Flexible Learning</h3>
-                    <p>Study at your own pace with our online and in-person options</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3>Career Support</h3>
-                    <p>Get career guidance and job placement assistance after completion</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h3>Certification</h3>
-                    <p>Earn recognized certificates to boost your career prospects</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Why Choose Us Section -->
+        <section class="features">
+            <!-- Features content -->
+        </section>
 
-    <!-- Courses Section -->
-    <section id="courses" class="courses">
-        <div class="container">
-            <div class="section-header">
-                <h2>Popular Courses</h2>
-                <p>Browse our most sought-after courses designed for today's job market</p>
-            </div>
-            <div class="courses-grid">
-                <div class="course-card">
-                    <div class="course-image">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Web Development">
-                        <div class="course-category">Development</div>
-                    </div>
-                    <div class="course-content">
-                        <h3>Full Stack Web Development</h3>
-                        <p>Master HTML, CSS, JavaScript, React, Node.js and build real-world projects</p>
-                        <div class="course-meta">
-                            <span><i class="far fa-clock"></i> 12 Weeks</span>
-                            <span><i class="fas fa-signal"></i> Beginner</span>
-                        </div>
-                        <div class="course-price">
-                            <span class="price">$499</span>
-                            <a href="#" class="btn btn-outline">Enroll Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="course-card">
-                    <div class="course-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Data Science">
-                        <div class="course-category">Data Science</div>
-                    </div>
-                    <div class="course-content">
-                        <h3>Data Science & Machine Learning</h3>
-                        <p>Learn Python, pandas, scikit-learn, and build predictive models</p>
-                        <div class="course-meta">
-                            <span><i class="far fa-clock"></i> 16 Weeks</span>
-                            <span><i class="fas fa-signal"></i> Intermediate</span>
-                        </div>
-                        <div class="course-price">
-                            <span class="price">$599</span>
-                            <a href="#" class="btn btn-outline">Enroll Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="course-card">
-                    <div class="course-image">
-                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Mobile Development">
-                        <div class="course-category">Mobile</div>
-                    </div>
-                    <div class="course-content">
-                        <h3>Mobile App Development</h3>
-                        <p>Build iOS and Android apps with React Native and Flutter</p>
-                        <div class="course-meta">
-                            <span><i class="far fa-clock"></i> 10 Weeks</span>
-                            <span><i class="fas fa-signal"></i> Beginner</span>
-                        </div>
-                        <div class="course-price">
-                            <span class="price">$549</span>
-                            <a href="#" class="btn btn-outline">Enroll Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section-footer">
-                <a href="#" class="btn btn-primary">View All Courses</a>
-            </div>
-        </div>
-    </section>
+        <!-- Programs Section -->
+        <section id="programs" class="programs">
+            <!-- Programs content -->
+        </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>Success Stories</h2>
-                <p>Hear from our graduates who transformed their careers</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"The Learning Curve completely changed my career trajectory. I went from retail to a full-time developer in just 6 months!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Sarah Johnson">
-                        <div>
-                            <h4>Sarah Johnson</h4>
-                            <p>Web Developer at TechCorp</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"The instructors were incredibly supportive and the curriculum was perfectly aligned with industry needs. Highly recommend!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Michael Chen">
-                        <div>
-                            <h4>Michael Chen</h4>
-                            <p>Data Scientist at DataWorks</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"I was able to study while working full-time. The flexible schedule and career support made all the difference in my job search."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Jessica Williams">
-                        <div>
-                            <h4>Jessica Williams</h4>
-                            <p>Mobile Developer at AppInnovate</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Gallery Section -->
+        <section class="gallery">
+            <!-- Gallery content -->
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>Start Your Learning Journey Today</h2>
-                    <p>Have questions about our courses or need guidance on which path is right for you? Our team is here to help.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email Us</h4>
-                                <p>hello@learningcurve.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Call Us</h4>
-                                <p>+1 (555) 123-4567</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Visit Us</h4>
-                                <p>123 Education Street, Learning City, LC 12345</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                
-                <div class="contact-form-container">
-                    <div class="form-container">
-                        <h3>Get In Touch</h3>
-                        
-                        <!-- Success/Error Messages -->
-                        <div id="successMessage" class="message success">
-                            Thank you! Your message has been sent successfully.
-                        </div>
-                        <div id="errorMessage" class="message error">
-                            Sorry, there was an error sending your message. Please try again.
-                        </div>
-                        
-                        <!-- Contact Form -->
-                        <form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_FORM_ID" method="POST">
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="interest">Course Interest</label>
-                                <select id="interest" name="interest">
-                                    <option value="">Select a course</option>
-                                    <option value="web-development">Web Development</option>
-                                    <option value="data-science">Data Science</option>
-                                    <option value="mobile-development">Mobile Development</option>
-                                    <option value="ui-ux">UI/UX Design</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" placeholder="Tell us about your goals and any questions you have..."></textarea>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <!-- Testimonials content -->
+        </section>
+
+        <!-- Blogs Section -->
+        <section id="blogs" class="blogs">
+            <!-- Blogs content -->
+        </section>
+
+        <!-- Contact Section -->
+        <section id="book-tour" class="contact">
+            <!-- Contact form -->
+        </section>
+
+        <!-- Map Section -->
+        <section class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.590114092497!2d78.3220496759085!3d17.47879610023249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb938095555555%3A0xe5427a1955b23d90!2sThe%20Learning%20Curve%2C%20Preschool%20%26%20Daycare!5e0!3m2!1sen!2sin!4v1724249122394!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>The Learning Curve</h3>
-                    <p>Empowering individuals with the skills needed to thrive in the digital economy through quality education and career support.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#courses">Courses</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#testimonials">Success Stories</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Courses</h4>
-                    <ul>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Data Science</a></li>
-                        <li><a href="#">Mobile Development</a></li>
-                        <li><a href="#">UI/UX Design</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> hello@learningcurve.com</li>
-                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Education Street</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 The Learning Curve. All rights reserved.</p>
-            </div>
-        </div>
+        <!-- Footer content -->
     </footer>
 
-    <script src="main.js"></script>
-    <script src="forms.js"></script>
+    <!-- Modals -->
+    <div id="modal-container"></div>
+    <div id="blog-modal-container"></div>
+
+    <!-- Tawk.to Chat Widget -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/YOUR_TAWK_TO_WIDGET_ID/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/sliders.js"></script>
+    <script src="js/carvas.js"></script>
 </body>
 </html>
