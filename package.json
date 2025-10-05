@@ -1,0 +1,21 @@
+{
+  "name": "st-vincents-preschool-website",
+  "version": "1.0.0",
+  "description": "Website for St. Vincent's Preschool & Daycare",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000",
+    "build": "echo 'No build process needed for static site'"
+  },
+  "keywords": [
+    "preschool",
+    "daycare",
+    "education",
+    "website"
+  ],
+  "author": "St. Vincent's Preschool",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
