@@ -1,26 +1,21 @@
 // Main JavaScript file - Initializes the application
-const GOOGLE_SHEETS_API_URL = 'https://script.google.com/macros/s/AKfycbyXof_IuR9uCZBVmgjNTYYisbvEOu21BTEHAZIJfoKPm375joLtycdoDkoi_u41MLZo/exec';
-
-// Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize Lucide icons
-    lucide.createIcons();
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
     
     // Initialize mobile menu
     initMobileMenu();
     
     // Initialize all components
-    initFAQ();
-    initTestimonials();
-    initImageSlider();
-    initModals();
     initProgramCards();
-    initBlogModals();
+    initBlogPosts();
+    initGallery();
+    initTestimonials();
+    initForms();
     
-    // Auto-open contact modal after 5 seconds
-    setTimeout(() => {
-        createContactModal();
-    }, 5000);
+    console.log('The Learning Curve website initialized successfully');
 });
 
 // Mobile Menu functionality
@@ -31,210 +26,157 @@ function initMobileMenu() {
     if (menuBtn && mobileMenu) {
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+            // Update icon
+            const icon = menuBtn.querySelector('i');
+            if (icon) {
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.setAttribute('data-lucide', 'menu');
+                } else {
+                    icon.setAttribute('data-lucide', 'x');
+                }
+                lucide.createIcons();
+            }
         });
     }
 }
 
-// FAQ Accordion functionality
-function initFAQ() {
-    document.querySelectorAll('.faq-question').forEach(item => {
-        item.addEventListener('click', () => {
-            const parent = item.parentElement;
-            const wasOpen = parent.classList.contains('open');
-            document.querySelectorAll('.faq-item.open').forEach(openItem => openItem.classList.remove('open'));
-            if (!wasOpen) {
-                parent.classList.add('open');
+// Program Cards functionality
+function initProgramCards() {
+    const programData = [
+        {
+            id: 'playgroup',
+            title: 'Playgroup',
+            age: 'Ages 1.5 - 2.5 Years',
+            description: 'A gentle introduction to school, focusing on sensory exploration and social interaction.',
+            color: 'red'
+        },
+        {
+            id: 'nursery',
+            title: 'Nursery',
+            age: 'Ages 2.5 - 3.5 Years',
+            description: 'Building foundational literacy and numeracy skills through fun, thematic activities.',
+            color: 'blue'
+        },
+        {
+            id: 'lkg_ukg',
+            title: 'LKG & UKG',
+            age: 'Ages 3.5 - 5.5 Years',
+            description: 'Preparing for formal schooling with a focus on writing, reading, and problem-solving.',
+            color: 'yellow'
+        },
+        {
+            id: 'daycare',
+            title: 'Full Day Care',
+            age: 'Ages 1.5 - 8 Years',
+            description: 'A safe, engaging, and structured environment for children of working parents.',
+            color: 'green'
+        }
+    ];
+
+    const container = document.querySelector('#programs .grid');
+    if (!container) return;
+
+    container.innerHTML = programData.map(program => `
+        <div class="program-card bg-${program.color}-50 rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform cursor-pointer" data-program="${program.id}">
+            <div class="p-8 text-center">
+                <h3 class="font-bold text-2xl text-${program.color}-500">${program.title}</h3>
+                <p class="font-medium text-gray-700">${program.age}</p>
+                <p class="text-gray-600 mt-3">${program.description}</p>
+                <span class="mt-4 inline-block font-semibold text-${program.color}-600">View Details & Pricing</span>
+            </div>
+        </div>
+    `).join('');
+
+    // Add event listeners to program cards
+    document.querySelectorAll('.program-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const programId = card.dataset.program;
+            if (typeof createProgramModal === 'function') {
+                createProgramModal(programId);
             }
         });
     });
 }
 
-// Program Cards functionality
-function initProgramCards() {
-    document.querySelectorAll('.program-card').forEach(card => { 
-        card.addEventListener('click', () => createModal(programData[card.dataset.program], document.getElementById('modal-container'))); 
-    });
-}
+// Blog Posts functionality
+function initBlogPosts() {
+    const blogData = [
+        {
+            id: 'blog1',
+            title: "6 Tips for Choosing the Right Preschool",
+            image: "https://placehold.co/600x400/ef4444/ffffff?text=Choosing+a+Preschool",
+            description: "Choosing your child's first school is a big decision. We break down the key factors to consider, from curriculum to campus safety.",
+            color: 'red'
+        },
+        {
+            id: 'blog2',
+            title: "The Magic of Play-Based Learning",
+            image: "https://placehold.co/600x400/3b82f6/ffffff?text=Play-Based+Learning",
+            description: "Discover why playing with blocks and dressing up as superheroes is serious learning for your child's development.",
+            color: 'blue'
+        },
+        {
+            id: 'blog3',
+            title: "A Guide to Easing Separation Anxiety",
+            image: "https://placehold.co/600x400/f59e0b/ffffff?text=Separation+Anxiety",
+            description: "Tearful goodbyes? Here are proven strategies to make drop-offs a positive and confident experience for you and your child.",
+            color: 'yellow'
+        }
+    ];
 
-// Blog Modals functionality
-function initBlogModals() {
-    document.querySelectorAll('.open-blog-modal').forEach(btn => {
+    const container = document.getElementById('blog-container');
+    if (!container) return;
+
+    container.innerHTML = blogData.map(blog => `
+        <article class="bg-white p-6 rounded-xl shadow-lg flex flex-col hover-lift">
+            <img src="${blog.image}" alt="${blog.title}" class="rounded-lg mb-4 h-48 object-cover">
+            <h3 class="text-xl font-bold text-gray-800">${blog.title}</h3>
+            <p class="text-gray-600 mt-2 flex-grow">${blog.description}</p>
+            <button class="read-more-btn mt-4 font-semibold text-${blog.color}-500 self-start" data-blog="${blog.id}">
+                Read More →
+            </button>
+        </article>
+    `).join('');
+
+    // Add event listeners to blog buttons
+    document.querySelectorAll('.read-more-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-            const blogId = btn.getAttribute('data-blog');
-            createBlogModal(blogId);
+            const blogId = btn.dataset.blog;
+            if (typeof createBlogModal === 'function') {
+                createBlogModal(blogId);
+            }
         });
     });
 }
 
-// Blog Content
-const blogData = {
-    science: {
-        title: "The Science of Early Learning",
-        subtitle: "How Preschool Shapes Brain Development",
-        image: "https://images.unsplash.com/photo-1519452575416-64e83f8b89cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        content: `
-            <p class="mb-4">The early years of a child's life are a period of rapid brain development. During this time, the brain forms neural connections at an astonishing rate - up to one million new connections per second. These connections build the foundation for all future learning, behavior, and health.</p>
-            
-            <h4 class="text-2xl font-bold text-gray-800 mt-6 mb-4">Critical Periods of Development</h4>
-            <p class="mb-4">Research shows that certain abilities are best developed during specific "sensitive periods" in early childhood. For example:</p>
-            
-            <ul class="list-disc pl-6 mb-4 space-y-2">
-                <li><strong>Language development:</strong> The prime period for language acquisition is between birth and age 5</li>
-                <li><strong>Social-emotional skills:</strong> Foundation for relationships forms in the first 3 years</li>
-                <li><strong>Cognitive development:</strong> Critical thinking skills develop rapidly between ages 3-5</li>
-            </ul>
-            
-            <div class="bg-blue-50 p-6 crayon-border my-6">
-                <p class="text-blue-800 font-semibold text-lg">"The architecture of the brain is built over time, and early experiences shape the foundation." - Center on the Developing Child, Harvard University</p>
+// Gallery functionality
+function initGallery() {
+    const galleryImages = [
+        "https://lh3.googleusercontent.com/p/AF1QipM5x2p1Y_T1W6yP-k2cZ2e6a_O7aC8-P1eG8sA=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipN30uJ_y33X81oXg8qG_uQ3F9Uq6sWqK4a7WbA=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipPzWq14o8WzK_1R2jT6H6gY7bB5_p6T1sN3M0A=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipONm2mSj24J-V9d-w_D3-s8-uY6gV3kI1H-A-A=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipO9wU2S-V-0V8aQ5N-w9v5_i-b4l-eQ9F-eK-s=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipM0v_v0k4-p2a3m3_f6X8S0o8f7_j6R-I-eY9w=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipP_O7K-gX1Y6jR4j-c8z_X4J6-r7_l8eY6uU_I=s1360-w1360-h1020",
+        "https://lh3.googleusercontent.com/p/AF1QipO3-s6Q-j_d-k-C-s_H-n7_p1_x-w_k4j_s7A=s1360-w1360-h1020"
+    ];
+
+    const container = document.querySelector('.py-16.md\\:py-24.bg-red-50 .grid');
+    if (!container) return;
+
+    // Create gallery grid
+    let galleryHTML = '';
+    for (let i = 0; i < galleryImages.length; i += 2) {
+        galleryHTML += `
+            <div class="grid gap-4">
+                ${galleryImages.slice(i, i + 2).map(img => `
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg shadow-md hover:scale-105 transition-transform object-cover w-full h-48" src="${img}" alt="The Learning Curve">
+                    </div>
+                `).join('')}
             </div>
-            
-            <h4 class="text-2xl font-bold text-gray-800 mt-6 mb-4">The Role of Quality Early Education</h4>
-            <p class="mb-4">High-quality preschool programs provide the stimulating environment necessary for optimal brain development. Studies have shown that children who attend quality preschool programs:</p>
-            
-            <ul class="list-disc pl-6 mb-4 space-y-2">
-                <li>Develop stronger neural connections in language and cognitive areas</li>
-                <li>Show better executive function skills (planning, focus, self-control)</li>
-                <li>Have higher graduation rates and better lifelong outcomes</li>
-            </ul>
-            
-            <div class="flex flex-col md:flex-row gap-6 my-8">
-                <div class="md:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Children engaged in learning activities" class="w-full h-48 object-cover crayon-border">
-                </div>
-                <div class="md:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1593113630400-ea4288922497?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Teacher guiding children" class="w-full h-48 object-cover crayon-border">
-                </div>
-            </div>
-            
-            <h4 class="text-2xl font-bold text-gray-800 mt-6 mb-4">References & Further Reading</h4>
-            <ul class="text-sm space-y-1 mb-4">
-                <li>Center on the Developing Child, Harvard University. (2016). From Best Practices to Breakthrough Impacts.</li>
-                <li>National Scientific Council on the Developing Child. (2007). The Timing and Quality of Early Experiences Combine to Shape Brain Architecture.</li>
-                <li>Yoshikawa, H., et al. (2013). Investing in Our Future: The Evidence Base on Preschool Education.</li>
-            </ul>
-            
-            <p class="mt-6">By understanding the science behind early learning, we can better appreciate the vital role that quality preschool education plays in setting children up for lifelong success.</p>
-        `
-    },
-    social: {
-        title: "Social Skills Development",
-        subtitle: "Building Foundations for Healthy Relationships",
-        image: "https://images.unsplash.com/photo-1593113630400-ea4288922497?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        content: `
-            <p class="mb-4">The preschool years are a critical period for social development. During this time, children learn fundamental skills that will influence their relationships throughout life. At St. Vincent's, we create environments where children naturally develop these essential social competencies.</p>
-            
-            <h4 class="text-2xl font-bold text-gray-800 mt-6 mb-4">Key Social Skills Developed in Preschool</h4>
-            <p class="mb-4">Through carefully designed activities and guided interactions, children develop:</p>
-            
-            <ul class="list-disc pl-6 mb-4 space-y-2">
-                <li><strong>Cooperation:</strong> Learning to work together toward common goals</li>
-                <li><strong>Empathy:</strong> Understanding and responding to others' feelings</li>
-                <li><strong>Communication:</strong> Expressing needs and listening to others</li>
-                <li><strong>Conflict resolution:</strong> Solving disagreements peacefully</li>
-                <li><strong>Sharing and turn-taking:</strong> Fundamental skills for social interaction</li>
-            </ul>
-            
-            <div class="bg-green-50 p-6 crayon-border my-6">
-                <p class="text-green-800 font-semibold text-lg">"The single best childhood predictor of adult adaptation is not school grades, but adequacy with which the child gets along with other children." - Willard Hartup, Child Development Researcher</p>
-            </div>
-            
-            <h4 class="text-2xl font-bold text-gray-800 mt-6 mb-4">How We Foster Social Development</h4>
-            <p class="mb-4">Our approach to social development includes:</p>
-            
-            <ol class="list-decimal pl-6 mb-4 space-y-2">
-                <li><strong>Structured group activities:</strong> Collaborative projects that require teamwork</li>
-                <li><strong>Role-playing scenarios:</strong> Practicing social situations in a safe environment</li>
-                <li><strong>Teacher modeling:</strong> Demonstrating positive social interactions</li>
-                <li><strong>Emotional literacy:</strong> Teaching children to identify and express emotions</li>
-                <li><strong>Problem-solving guidance:</strong> Helping children navigate social challenges</li>
-            </ol>
-            
-            <div class="flex flex-col md:flex-row gap-6 my-8">
-                <div class="md:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Children playing together" class="w-full h-48 object-cover crayon-border">
-                </div>
-                <div class="md:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Children engaged in group activity" class="w-full h-48 object-cover crayon-border">
-                </div>
-            </div>
-            
-            <h4 class="text-2xl font-bold text-gray-800 mt-6 mb-4">Long-Term Benefits</h4>
-            <p class="mb-4">Research shows that strong social skills in early childhood predict:</p>
-            
-            <ul class="list-disc pl-6 mb-4 space-y-2">
-                <li>Better academic performance in later school years</li>
-                <li>Higher rates of college attendance and completion</li>
-                <li>More stable employment in adulthood</li>
-                <li>Better mental health outcomes</li>
-                <li>Stronger, more satisfying relationships throughout life</li>
-            </ul>
-            
-            <p class="mt-6">By prioritizing social development alongside academic readiness, we help children build the foundation for success in all areas of life.</p>
-        `
-    },
-    primary: {
-        title: "Preparing for Primary School",
-        subtitle: "Ensuring a Smooth Transition to Formal Education",
-        image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        content: `
-            <p class="mb-4">The transition from preschool to primary school is a significant milestone in a child's educational journey. At St. Vincent's, we carefully prepare children for this important step, ensuring they enter formal schooling with confidence, curiosity, and the foundational skills needed for success.</p>
-            
-            <h4 class="text-2xl font-bold text-gray-800 mt-6 mb-4">Academic Readiness</h4>
-            <p class="mb-4">Our curriculum builds essential academic foundations through developmentally appropriate activities:</p>
-            
-            <ul class="list-disc pl-6 mb-4 space-y-2">
-                <li><strong>Literacy skills:</strong> Phonemic awareness, letter recognition, and early reading readiness</li>
-                <li><strong>Numeracy development:</strong> Number sense, basic operations, and mathematical thinking</li>
-                <li><strong>Fine motor skills:</strong> Pencil grip, cutting, and writing preparation</li>
-                <li><strong>Executive function:</strong> Attention, memory, and self-regulation abilities</li>
-            </ul>
-            
-            <div class="bg-purple-50 p-6 crayon-border my-6">
-                <p class="text-purple-800 font-semibold text-lg">"Children who experience a smooth transition to primary school are more likely to develop positive attitudes toward learning and achieve academic success." - Ramey & Ramey, Early Childhood Researchers</p>
-            </div>
-            
-            <h4 class="text-2xl font-bold text-gray-800 mt-6 mb-4">Social-Emotional Preparation</h4>
-            <p class="mb-4">Beyond academic skills, we focus on developing the social and emotional competencies needed for primary school:</p>
-            
-            <ol class="list-decimal pl-6 mb-4 space-y-2">
-                <li><strong>Independence:</strong> Following routines, managing belongings, and self-care skills</li>
-                <li><strong>Resilience:</strong> Coping with challenges and bouncing back from setbacks</li>
-                <li><strong>Collaboration:</strong> Working effectively with peers and teachers</li>
-                <li><strong>Self-advocacy:</strong> Expressing needs and asking for help appropriately</li>
-            </ol>
-            
-            <div class="flex flex-col md:flex-row gap-6 my-8">
-                <div class="md:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1519452575416-64e83f8b89cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Child engaged in learning activity" class="w-full h-48 object-cover crayon-border">
-                </div>
-                <div class="md:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1593113630400-ea4288922497?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Teacher working with small group" class="w-full h-48 object-cover crayon-border">
-                </div>
-            </div>
-            
-            <h4 class="text-2xl font-bold text-gray-800 mt-6 mb-4">Our Transition Program</h4>
-            <p class="mb-4">We implement a comprehensive transition program that includes:</p>
-            
-            <ul class="list-disc pl-6 mb-4 space-y-2">
-                <li>Gradual introduction to more structured learning environments</li>
-                <li>Collaboration with local primary schools to align expectations</li>
-                <li>Parent workshops on supporting the transition to primary school</li>
-                <li>Portfolio development to showcase children's readiness</li>
-                <li>Visits from primary school teachers and students when possible</li>
-            </ul>
-            
-            <h4 class="text-2xl font-bold text-gray-800 mt-6 mb-4">Measurable Outcomes</h4>
-            <p class="mb-4">Our graduates consistently demonstrate:</p>
-            
-            <ul class="list-disc pl-6 mb-4 space-y-2">
-                <li>Strong foundational literacy and numeracy skills</li>
-                <li>Positive attitudes toward learning and school</li>
-                <li>Well-developed social skills and emotional regulation</li>
-                <li>Confidence in navigating new environments and routines</li>
-                <li>Smooth adjustment to the demands of primary school</li>
-            </ul>
-            
-            <p class="mt-6">By focusing on holistic development and school readiness, we ensure that children leave St. Vincent's not just prepared for primary school, but excited about the learning journey ahead.</p>
-        `
+        `;
     }
-};
+    container.innerHTML = galleryHTML;
+}
