@@ -1,30 +1,37 @@
 // form.js - Form handling functionality
 
 document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const successMessage = document.getElementById('successMessage');
-    const errorMessage = document.getElementById('errorMessage');
+    initializeTourForm();
+});
+
+function initializeTourForm() {
+    const tourForm = document.getElementById('tour-form');
+    const successMessage = document.getElementById('form-success-message');
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', handleFormSubmit);
+    if (tourForm) {
+        tourForm.addEventListener('submit', handleFormSubmit);
     }
     
     function handleFormSubmit(event) {
         event.preventDefault();
+        
+        const submitBtn = tourForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
         
         // Disable submit button and show loading state
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sending...';
         
         // Hide previous messages
-        hideMessages();
+        if (successMessage) {
+            successMessage.classList.add('hidden');
+        }
         
         // Get form data
-        const formData = new FormData(contactForm);
+        const formData = new FormData(tourForm);
         
         // Send form data to Formspree
-        fetch(contactForm.action, {
+        fetch(tourForm.action, {
             method: 'POST',
             body: formData,
             headers: {
@@ -34,57 +41,22 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => {
             if (response.ok) {
                 // Success
-                showSuccess();
-                contactForm.reset();
+                if (successMessage) {
+                    successMessage.classList.remove('hidden');
+                }
+                tourForm.reset();
             } else {
-                // Error from Formspree
                 throw new Error('Form submission failed');
             }
         })
         .catch(error => {
-            // Network error or other issues
             console.error('Form submission error:', error);
-            showError();
+            alert('Sorry, there was an error sending your message. Please try again.');
         })
         .finally(() => {
             // Re-enable submit button
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Send Message';
+            submitBtn.textContent = originalText;
         });
     }
-    
-    function showSuccess() {
-        successMessage.style.display = 'block';
-        setTimeout(hideMessages, 5000); // Hide after 5 seconds
-    }
-    
-    function showError() {
-        errorMessage.style.display = 'block';
-        setTimeout(hideMessages, 5000); // Hide after 5 seconds
-    }
-    
-    function hideMessages() {
-        successMessage.style.display = 'none';
-        errorMessage.style.display = 'none';
-    }
-    
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const target = document.querySelector(targetId);
-            if (target) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = target.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-});
+}
