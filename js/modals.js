@@ -1,329 +1,260 @@
-// Modal Functionality
+// Program Modal Data
 const programData = {
-    playgroup: { 
-        title: "Playgroup", 
-        hook: "Where Curiosity Takes Flight!", 
-        value: "Our Playgroup is a wonderland of sensory experiences designed to nurture your toddler's budding curiosity.", 
-        curriculum: ["Sensory Play", "Gross Motor Skills", "Fine Motor Development", "Music & Movement", "Early Language", "Group Play"], 
-        color: "red" 
+    playgroup: {
+        title: "Playgroup Program",
+        hook: "Where Curiosity Takes Flight!",
+        value: "Our Playgroup is a wonderland of sensory experiences designed to nurture your toddler's budding curiosity and social skills in a safe, warm environment.",
+        curriculum: ["Sensory Play (Sand, Water, Clay)", "Gross Motor Skills Development", "Music & Movement Sessions", "Early Language Exposure", "Introduction to Sharing & Group Play"],
+        schedule: { 
+            "9:00 AM": "Welcome & Free Play", 
+            "9:30 AM": "Circle Time (Songs & Rhymes)", 
+            "10:00 AM": "Sensory Activity", 
+            "10:45 AM": "Snack Time", 
+            "11:15 AM": "Outdoor Play", 
+            "12:00 PM": "Story Time & Dismissal" 
+        },
+        pricing: "₹6,500 / month",
+        color: "red"
     },
-    nursery: { 
-        title: "Nursery", 
-        hook: "Building Blocks for a Bright Future!", 
-        value: "In Nursery, we build upon natural curiosity by introducing foundational concepts in literacy and numeracy.", 
-        curriculum: ["Phonics", "Pre-writing Skills", "Number Recognition", "Physical Development Activities", "Colors & Shapes", "Storytelling"], 
-        color: "blue" 
+    nursery: {
+        title: "Nursery Program",
+        hook: "Building Blocks for a Bright Future!",
+        value: "In Nursery, we build upon natural curiosity by introducing foundational concepts in literacy and numeracy through engaging thematic units and creative expression.",
+        curriculum: ["Phonological Awareness", "Pre-writing & Fine Motor Skills", "Number Recognition (1-10)", "Concept of Colors & Shapes", "Art, Craft, & Storytelling"],
+        schedule: { 
+            "9:00 AM": "Arrival & Phonics Fun", 
+            "9:45 AM": "Thematic Learning Activity", 
+            "10:30 AM": "Snack Time", 
+            "11:00 AM": "Outdoor/Gross Motor Play", 
+            "11:45 AM": "Creative Arts", 
+            "12:30 PM": "Dismissal" 
+        },
+        pricing: "₹7,000 / month",
+        color: "blue"
     },
-    lkg: { 
-        title: "LKG", 
-        hook: "Getting Ready for Big School!", 
-        value: "Our LKG program focuses on developing foundational academic skills and preparing children for formal schooling.", 
-        curriculum: ["Reading & Writing", "Basic Numeracy", "Physical Coordination", "EVS Concepts", "Logical Reasoning", "Creative Expression"], 
-        color: "yellow" 
+    lkg_ukg: {
+        title: "LKG & UKG Program",
+        hook: "Getting Ready for the Big School!",
+        value: "Our Kindergarten program is structured to ensure a smooth transition to formal schooling, focusing on reading, writing, and critical thinking skills.",
+        curriculum: ["Reading & Writing CVC Words", "Advanced Numeracy (Addition/Subtraction)", "Environmental Science (EVS) Concepts", "Logical Reasoning & Problem Solving", "Public Speaking & Show-and-Tell"],
+        schedule: { 
+            "9:00 AM": "Language & Literacy Block", 
+            "10:00 AM": "Math & Logic Activities", 
+            "10:45 AM": "Snack Break", 
+            "11:15 AM": "EVS/Project Work", 
+            "12:00 PM": "Outdoor Play", 
+            "12:45 PM": "Dismissal" 
+        },
+        pricing: "₹7,500 / month",
+        color: "yellow"
     },
-    ukg: { 
-        title: "UKG", 
-        hook: "Advanced Preparation for Primary School!", 
-        value: "Our UKG program ensures children are fully prepared for primary school with comprehensive skill development.", 
-        curriculum: ["Advanced Reading & Writing", "Mathematical Concepts", "Physical Development", "Science Exploration", "Problem Solving", "Public Speaking"], 
-        color: "green" 
-    },
-    daycare: { 
-        title: "Day Care", 
-        hook: "Your Child's Safe Second Home!", 
-        value: "We provide a secure, nurturing, and structured environment for children of working parents.", 
-        curriculum: ["Homework Assistance", "Hobby Classes", "Structured Play", "Nap Time", "Indoor Activities"], 
-        color: "purple" 
+    daycare: {
+        title: "Full Day Care",
+        hook: "Your Child's Safe & Happy Second Home!",
+        value: "We provide a secure, nurturing, and structured environment for children of working parents, blending care with engaging activities for holistic development.",
+        curriculum: ["Homework Assistance", "Age-appropriate Hobby Classes", "Structured Play & Activities", "Nutritious Meals & Snacks", "Dedicated Nap/Rest Time"],
+        schedule: { 
+            "1:00 PM": "Arrival & Lunch", 
+            "2:00 PM": "Quiet/Nap Time", 
+            "3:30 PM": "Snack & Homework Help", 
+            "4:30 PM": "Hobby Class (Art/Dance)", 
+            "5:30 PM": "Free Play & Group Games", 
+            "6:30 PM": "Departure" 
+        },
+        pricing: "Starting from ₹9,000 / month",
+        color: "green"
     }
 };
 
-function createModal(data, container) {
-    let modalHTML = '';
-    if (container === document.getElementById('modal-container')) {
-         modalHTML = `
-         <div class="modal-overlay fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0" style="display: none;">
-            <div class="modal-content bg-paper crayon-border w-full max-w-2xl max-h-[90vh] overflow-y-auto transform scale-95">
-                <div class="p-8">
+// Blog Modal Data
+const blogData = {
+    blog1: {
+        title: "6 Essential Tips for Choosing the Right Preschool in Hyderabad",
+        content: `
+            <p>Choosing the first school for your child is a significant decision. In a bustling area like Chanda Nagar, the options can feel overwhelming. How do you find a place that's not just a school, but a second home? Here are six key factors to consider to ensure you make the best choice for your family.</p>
+            <h3>1. Philosophy and Curriculum: What's Their Approach?</h3>
+            <p>Does the school follow a play-based philosophy, a structured academic one like Montessori, or a mix? At The Learning Curve, we champion a play-based curriculum because we believe children learn best through exploration and fun. Look for a curriculum that sparks curiosity and builds foundational skills in literacy, numeracy, and social interaction without pressure.</p>
+            <h3>2. Campus Safety and Hygiene</h3>
+            <p>A parent's primary concern is always safety. During your visit, check for secure entry/exit points, CCTV surveillance, child-proofed furniture, and clean, hygienic spaces. A well-maintained environment shows a school's commitment to the well-being of its students. Don't hesitate to ask about their specific safety protocols and staff training.</p>
+            <h3>3. Teacher-Student Interaction and Ratio</h3>
+            <p>Observe the classrooms. Are the teachers warm, engaging, and patient? A low student-teacher ratio is crucial for toddlers and preschoolers as it ensures personalized attention. This allows teachers to understand each child's unique personality, strengths, and needs, fostering a stronger bond and a more effective learning experience.</p>
+            <h3>4. Location and Convenience</h3>
+            <p>Consider the daily commute. A preschool close to your home in areas like Chanda Nagar, Miyapur, or Lingampally can make mornings significantly less stressful for both you and your child. Less travel time means more energy for learning and playing.</p>
+            <h3>5. Parent Communication</h3>
+            <p>How does the school keep parents informed? Look for schools that offer regular updates, parent-teacher meetings, and an open-door policy. Strong communication builds a partnership between the school and parents, which is vital for a child's success.</p>
+            <h3>6. Trust Your Gut Feeling</h3>
+            <p>Finally, after all the research, trust your intuition. During your school tour, pay attention to the atmosphere. Does it feel happy, vibrant, and welcoming? Can you picture your child thriving there? Often, the right place just *feels* right.</p>`
+    },
+    blog2: {
+        title: "The Magic of Play-Based Learning: More Than Just Fun and Games",
+        content: `
+            <p>When you peek into a play-based preschool classroom, you'll see children building towers, dressing up as superheroes, or digging in a sensory bin. It might look like simple fun, but it's actually a powerful and intentional approach to education. Here's why play-based learning is so beneficial for your child's development.</p>
+            <h3>Developing Social and Emotional Skills</h3>
+            <p>Play is the first language of children. Through group activities, they learn to negotiate roles ("I'll be the doctor, you be the patient!"), share toys, take turns, and resolve conflicts. These interactions are crucial for developing empathy, cooperation, and emotional self-regulation—skills that are foundational for success in school and life.</p>
+            <h3>Fostering Creativity and Imagination</h3>
+            <p>A simple cardboard box can become a rocket ship, a castle, or a car. Play-based environments provide open-ended materials that encourage children to think creatively and solve problems. This ability to imagine and innovate is a critical skill for the 21st century.</p>
+            <h3>Building Language and Communication</h3>
+            <p>From storytelling during pretend play to describing their block tower, children are constantly using and expanding their vocabulary in a playful setting. They learn to express their ideas, listen to others, and build the communication skills necessary for strong literacy development.</p>
+            <h3>Making Academic Concepts Concrete</h3>
+            <p>Play is a child's research. When they sort colorful blocks, they're learning about patterns and classification (early math). When they pour water in the water table, they're exploring concepts of volume and physics. Play makes abstract academic ideas tangible, meaningful, and fun, creating a positive foundation for future learning.</p>`
+    },
+    blog3: {
+        title: "A Guide to Easing Separation Anxiety: Happy Goodbyes at the Preschool Door",
+        content: `
+            <p>The first few weeks of preschool can be tough—for both children and parents. Tears at drop-off are a normal part of development as your child learns to navigate a new environment. The good news is that with patience and consistency, you can make goodbyes a positive experience. Here are some strategies that work.</p>
+            <h3>1. Talk Positively About School</h3>
+            <p>In the days leading up to school, talk about all the fun things your child will do, the new friends they will make, and the exciting toys they will play with. Your positive attitude is contagious and can help build their excitement and confidence.</p>
+            <h3>2. Establish a Consistent Goodbye Routine</h3>
+            <p>Children thrive on routine. Create a simple, predictable goodbye ritual. This could be two hugs, a high-five, and a cheerful "See you later, alligator!" A consistent routine provides comfort and signals to your child that it's time for you to leave, but also that you will be back.</p>
+            <h3>3. Keep Goodbyes Short and Sweet</h3>
+            <p>Lingering can often make separation anxiety worse. Once you've completed your routine, give your child a confident smile, hand them over to their teacher, and leave. A prolonged, emotional goodbye can increase a child's distress. Trust that our caring teachers are experts at comforting and engaging children once you've departed.</p>
+            <h3>4. Always Say Goodbye</h3>
+            <p>It can be tempting to sneak away when your child is distracted, but this can lead to mistrust. Always let your child know you are leaving and that you will return. This builds their sense of security and trust in you.</p>
+            <h3>5. Partner with the Teacher</h3>
+            <p>Communicate with your child's teacher. We are your partners in this journey. We can share insights into how long it takes your child to settle in after you leave (it's often much quicker than you think!) and work with you on strategies to make the transition smoother.</p>`
+    }
+};
+
+// Create Program Modal
+function createProgramModal(programId) {
+    const data = programData[programId];
+    if (!data) return;
+
+    const scheduleHtml = Object.entries(data.schedule).map(([time, activity]) => `
+        <div class="flex justify-between border-b border-gray-200 py-2 text-sm">
+            <span class="font-medium text-gray-600">${time}</span>
+            <span class="text-gray-800">${activity}</span>
+        </div>
+    `).join('');
+
+    const modalHTML = `
+        <div class="modal-overlay fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50">
+            <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto transform">
+                <div class="p-6 md:p-8">
                     <div class="flex justify-between items-start mb-4">
                         <div>
-                            <h2 class="text-5xl font-bold text-gray-800">${data.title}</h2>
-                            <p class="text-2xl text-${data.color}-600 font-semibold mt-1">${data.hook}</p>
+                            <h2 class="text-3xl font-bold text-gray-800">${data.title}</h2>
+                            <p class="text-lg text-${data.color}-600 font-semibold mt-1">${data.hook}</p>
                         </div>
                         <button class="close-modal-btn p-1">
-                            <i data-lucide="x" class="w-8 h-8 text-gray-500"></i>
+                            <i data-lucide="x" class="w-6 h-6 text-gray-500"></i>
                         </button>
                     </div>
-                    <p class="font-body text-gray-600 mb-6 text-lg">${data.value}</p>
-                    <h3 class="font-bold text-3xl mb-3 text-gray-700">Curriculum Highlights</h3>
-                    <ul class="space-y-2 mb-8">
-                        ${data.curriculum.map(item => `
-                            <li class="flex items-center text-xl">
-                                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 mr-2"></i>${item}
-                            </li>
-                        `).join('')}
-                    </ul>
-                    <div class="bg-${data.color}-100 crayon-border p-6 flex justify-between items-center">
+                    <p class="text-gray-600 mb-6 font-family-lora">${data.value}</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <p class="text-gray-600 font-medium text-xl">To know more</p>
-                            <p class="text-4xl font-bold text-gray-800">Contact Us</p>
+                            <h3 class="font-bold text-xl mb-3 text-gray-700">Curriculum Highlights</h3>
+                            <ul class="space-y-2">
+                                ${data.curriculum.map(item => `
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span class="text-gray-600">${item}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
                         </div>
-                        <button class="open-contact-modal-from-program crayon-button bg-${data.color}-500 text-white font-bold px-6 py-3 text-xl">Book a Tour</button>
-                    </div>
-                </div>
-            </div>
-         </div>`;
-    } else if (container === document.getElementById('contact-modal-container')) {
-         modalHTML = `
-         <div class="modal-overlay fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0" style="display: none;">
-            <div class="modal-content bg-paper crayon-border w-full max-w-2xl max-h-[90vh] overflow-y-auto transform scale-95">
-                <div class="p-8">
-                    <div class="flex justify-between items-start mb-6">
                         <div>
-                            <h2 class="text-5xl font-bold text-gray-800">Schedule a Visit</h2>
-                            <p class="text-xl text-gray-600 mt-2">We'd love to show you around our campus!</p>
+                            <h3 class="font-bold text-xl mb-3 text-gray-700">A Day in ${data.title}</h3>
+                            <div class="space-y-1">${scheduleHtml}</div>
                         </div>
-                        <button class="close-modal-btn p-1">
-                            <i data-lucide="x" class="w-8 h-8 text-gray-500"></i>
-                        </button>
                     </div>
-                    <form id="contact-form" class="space-y-4">
-                        <div class="text-2xl">
-                            <label for="parentName" class="font-medium text-gray-700">Parent's Name</label>
-                            <input type="text" id="parentName" name="parentName" class="w-full mt-1 p-3 crayon-border text-xl" required>
+
+                    <div class="mt-8 bg-gray-100 p-6 rounded-lg flex flex-col sm:flex-row justify-between items-center">
+                        <div>
+                            <p class="text-gray-600 font-medium">Program Fee</p>
+                            <p class="text-3xl font-bold text-gray-800">${data.pricing}</p>
                         </div>
-                        <div class="text-2xl">
-                            <label for="phone" class="font-medium text-gray-700">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="w-full mt-1 p-3 crayon-border text-xl" required>
-                        </div>
-                        <div class="text-2xl">
-                            <label for="childAge" class="font-medium text-gray-700">Child's Age</label>
-                            <input type="number" id="childAge" name="childAge" min="1" max="8" class="w-full mt-1 p-3 crayon-border text-xl" required>
-                        </div>
-                        <div class="text-2xl">
-                            <label for="program" class="font-medium text-gray-700">Program Interested In</label>
-                            <select id="program" name="program" class="w-full mt-1 p-3 crayon-border text-xl" required>
-                                <option value="">Select a program</option>
-                                <option value="playgroup">Playgroup</option>
-                                <option value="nursery">Nursery</option>
-                                <option value="lkg">LKG</option>
-                                <option value="ukg">UKG</option>
-                                <option value="daycare">Day Care</option>
-                            </select>
-                        </div>
-                        <div class="text-2xl">
-                            <label for="message" class="font-medium text-gray-700">Additional Message (Optional)</label>
-                            <textarea id="message" name="message" class="w-full mt-1 p-3 crayon-border text-xl" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="w-full crayon-button bg-red-400 text-white font-bold text-2xl p-4 flex items-center justify-center gap-2">
-                            <span id="submit-text">Submit Inquiry</span>
-                            <div id="submit-spinner" class="spinner hidden" style="width: 20px; height: 20px;"></div>
-                        </button>
-                        <p id="contact-form-success-message" class="text-green-600 text-center font-semibold hidden text-xl">Thank you! We'll call you soon!</p>
-                        <p id="contact-form-error-message" class="text-red-600 text-center font-semibold hidden text-xl">There was an error submitting your form. Please try again or call us directly.</p>
-                    </form>
-                </div>
-            </div>
-         </div>`;
-    } else if (container === document.getElementById('review-modal-container')) {
-         modalHTML = `
-         <div class="modal-overlay fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0" style="display: none;">
-            <div class="modal-content bg-paper crayon-border w-full max-w-2xl max-h-[90vh] overflow-y-auto transform scale-95">
-                <div class="p-8 text-center">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="w-full">
-                            <h2 class="text-5xl font-bold text-gray-800">Thank You!</h2>
-                            <p class="text-xl text-gray-600 mt-2">We appreciate your interest in St. Vincent's Preschool.</p>
-                        </div>
-                        <button class="close-modal-btn p-1">
-                            <i data-lucide="x" class="w-8 h-8 text-gray-500"></i>
-                        </button>
-                    </div>
-                    <div class="bg-yellow-100 p-6 crayon-border mb-6">
-                        <i data-lucide="star" class="w-16 h-16 text-yellow-500 mx-auto mb-4"></i>
-                        <h3 class="text-3xl font-bold text-gray-800 mb-4">Help Other Parents Discover Us</h3>
-                        <p class="font-body text-gray-600 mb-6">Would you like to share your experience with other parents by leaving a Google review?</p>
-                        <a href="https://g.page/r/CbNp6tq5qJ7-EB0/review" target="_blank" class="crayon-button bg-green-500 text-white font-bold px-8 py-4 text-xl inline-flex items-center gap-2">
-                            <i data-lucide="star" class="w-6 h-6"></i> Leave a Google Review
+                        <a href="#book-tour" class="close-modal-btn w-full sm:w-auto mt-4 sm:mt-0 bg-${data.color}-500 text-white font-bold px-6 py-3 rounded-lg hover:bg-${data.color}-600 transition-colors shadow-lg">
+                            Book a Campus Tour
                         </a>
                     </div>
-                    <button class="close-review-modal crayon-button bg-gray-400 text-white font-bold px-8 py-4 text-xl">Maybe Later</button>
                 </div>
             </div>
-         </div>`;
-    } else if (container === document.getElementById('blog-modal-container')) {
-         modalHTML = `
-         <div class="modal-overlay fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0" style="display: none;">
-            <div class="modal-content bg-paper crayon-border w-full max-w-4xl max-h-[90vh] overflow-y-auto transform scale-95 blog-modal-content">
-                <div class="p-8">
-                    <div class="flex justify-between items-start mb-6">
-                        <div>
-                            <h2 class="text-5xl font-bold text-gray-800">${data.title}</h2>
-                            <p class="text-xl text-${data.color}-600 font-semibold mt-1">${data.subtitle}</p>
-                        </div>
-                        <button class="close-modal-btn p-1">
-                            <i data-lucide="x" class="w-8 h-8 text-gray-500"></i>
-                        </button>
-                    </div>
-                    <div class="flex flex-col md:flex-row gap-8 mb-8">
-                        <div class="md:w-2/5">
-                            <img src="${data.image}" alt="${data.title}" class="w-full h-64 object-cover crayon-border">
-                        </div>
-                        <div class="md:w-3/5">
-                            <div class="prose max-w-none font-body text-gray-700">
-                                ${data.content}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center mt-8">
-                        <button class="close-blog-modal crayon-button bg-red-400 text-white font-bold px-8 py-4 text-xl">Close</button>
-                    </div>
-                </div>
-            </div>
-         </div>`;
-    }
+        </div>`;
 
+    const container = document.getElementById('modal-container');
     container.innerHTML = modalHTML;
+    
     const overlay = container.querySelector('.modal-overlay');
     overlay.style.display = 'flex';
-    setTimeout(() => { 
-        overlay.classList.remove('opacity-0'); 
-        overlay.querySelector('.modal-content').classList.remove('scale-95'); 
+    
+    // Animate in
+    setTimeout(() => {
+        overlay.classList.add('opacity-0');
+        overlay.querySelector('.modal-content').classList.add('scale-95');
     }, 10);
     
+    setTimeout(() => {
+        overlay.classList.remove('opacity-0');
+        overlay.querySelector('.modal-content').classList.remove('scale-95');
+    }, 50);
+
+    // Initialize icons
     lucide.createIcons();
-    
-    // Handle form submission for contact modal
-    const contactForm = container.querySelector('#contact-form');
-    if (contactForm) {
-        const successMessage = container.querySelector('#contact-form-success-message');
-        const errorMessage = container.querySelector('#contact-form-error-message');
-        const submitText = container.querySelector('#submit-text');
-        const submitSpinner = container.querySelector('#submit-spinner');
-        
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show loading state
-            submitText.classList.add('hidden');
-            submitSpinner.classList.remove('hidden');
-            successMessage.classList.add('hidden');
-            errorMessage.classList.add('hidden');
-            
-            // Collect form data
-            const formData = {
-                parentName: document.getElementById('parentName').value,
-                phone: document.getElementById('phone').value,
-                childAge: document.getElementById('childAge').value,
-                program: document.getElementById('program').value,
-                message: document.getElementById('message').value,
-                timestamp: new Date().toISOString(),
-                source: 'Website Form'
-            };
-            
-            // Send data to Google Sheets
-            fetch(GOOGLE_SHEETS_API_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                // On success
-                successMessage.classList.remove('hidden');
-                contactForm.reset();
-                
-                // Reset button state
-                submitText.classList.remove('hidden');
-                submitSpinner.classList.add('hidden');
-                
-                setTimeout(() => { 
-                    successMessage.classList.add('hidden'); 
-                    closeModal(overlay);
-                    // Show review modal after successful form submission
-                    createReviewModal();
-                }, 2000);
-            })
-            .catch(error => {
-                // On error
-                console.error('Error:', error);
-                errorMessage.classList.remove('hidden');
-                
-                // Reset button state
-                submitText.classList.remove('hidden');
-                submitSpinner.classList.add('hidden');
-            });
-        });
-    }
-    
-    // Close modal when clicking overlay or close button
+
+    // Close modal events
     overlay.addEventListener('click', (e) => {
-        if (e.target === overlay || e.target.closest('.close-modal-btn') || e.target.closest('.close-review-modal') || e.target.closest('.close-blog-modal')) {
+        if (e.target === overlay || e.target.closest('.close-modal-btn')) {
             closeModal(overlay);
         }
     });
+}
+
+// Create Blog Modal
+function createBlogModal(blogId) {
+    const data = blogData[blogId];
+    if (!data) return;
+
+    const modalHTML = `
+        <div class="modal-overlay fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50">
+            <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto transform">
+                <div class="p-6 md:p-10">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800">${data.title}</h2>
+                        <button class="close-modal-btn p-1">
+                            <i data-lucide="x" class="w-7 h-7 text-gray-500"></i>
+                        </button>
+                    </div>
+                    <div class="blog-content">${data.content}</div>
+                </div>
+            </div>
+        </div>`;
+
+    const container = document.getElementById('blog-modal-container');
+    container.innerHTML = modalHTML;
     
-    // Open contact modal from program modal
-    const openContactModalBtns = container.querySelectorAll('.open-contact-modal-from-program');
-    openContactModalBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
+    const overlay = container.querySelector('.modal-overlay');
+    overlay.style.display = 'flex';
+    
+    // Animate in
+    setTimeout(() => {
+        overlay.classList.add('opacity-0');
+        overlay.querySelector('.modal-content').classList.add('scale-95');
+    }, 10);
+    
+    setTimeout(() => {
+        overlay.classList.remove('opacity-0');
+        overlay.querySelector('.modal-content').classList.remove('scale-95');
+    }, 50);
+
+    // Close modal events
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay || e.target.closest('.close-modal-btn')) {
             closeModal(overlay);
-            setTimeout(() => {
-                createContactModal();
-            }, 300);
-        });
+        }
     });
 }
 
+// Close Modal Function
 function closeModal(overlay) {
+    if (!overlay) return;
+    
     overlay.classList.add('opacity-0');
     overlay.querySelector('.modal-content').classList.add('scale-95');
-    setTimeout(() => { 
-        overlay.remove(); 
+    
+    setTimeout(() => {
+        overlay.style.display = 'none';
+        overlay.remove();
     }, 300);
-}
-
-function createContactModal() {
-    createModal({}, document.getElementById('contact-modal-container'));
-}
-
-function createReviewModal() {
-    createModal({}, document.getElementById('review-modal-container'));
-}
-
-function createBlogModal(blogId) {
-    const blogDataWithColor = {
-        ...blogData[blogId],
-        color: blogId === 'science' ? 'blue' : blogId === 'social' ? 'green' : 'purple'
-    };
-    createModal(blogDataWithColor, document.getElementById('blog-modal-container'));
-}
-
-// Initialize modals
-function initModals() {
-    // Contact modal triggers
-    const contactModalTriggers = [
-        'open-contact-modal',
-        'open-contact-modal-mobile',
-        'open-contact-modal-hero',
-        'open-contact-modal-bottom'
-    ];
-    
-    contactModalTriggers.forEach(id => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.addEventListener('click', createContactModal);
-        }
-    });
-    
-    const premiumContactBtn = document.querySelector('.open-contact-modal-premium');
-    if (premiumContactBtn) {
-        premiumContactBtn.addEventListener('click', createContactModal);
-    }
 }
