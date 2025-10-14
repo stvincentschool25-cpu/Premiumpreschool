@@ -463,20 +463,20 @@ const programData = {
         title: "Nursery", 
         hook: "Building Blocks for a Bright Future!", 
         value: "In Nursery, we build upon natural curiosity by introducing foundational concepts in literacy and numeracy.", 
-        curriculum: ["Phonics", "Pre-writing Skills", "Number Recognition", "Physical Development Activities", "Colors & Shapes", "Storytelling"], 
+        curriculum: ["Phonics", "Pre-writing Skills", "Number Recognition", "Development Activites", "Colors & Shapes", "Storytelling"], 
         color: "blue" 
     },
     lkg: { 
-        title: "LKG", 
+        title: "Pre-Primary 1", 
         hook: "Getting Ready for Big School!", 
-        value: "Our LKG program focuses on developing foundational academic skills and preparing children for formal schooling.", 
+        value: "Our program focuses on developing foundational academic skills and preparing children for formal schooling.", 
         curriculum: ["Reading & Writing", "Basic Numeracy", "Physical Coordination", "EVS Concepts", "Logical Reasoning", "Creative Expression"], 
         color: "yellow" 
     },
     ukg: { 
-        title: "UKG", 
+        title: "Pre-Primary 2", 
         hook: "Advanced Preparation for Primary School!", 
-        value: "Our UKG program ensures children are fully prepared for primary school with comprehensive skill development.", 
+        value: "Our program ensures children are fully prepared for primary school with comprehensive skill development.", 
         curriculum: ["Advanced Reading & Writing", "Mathematical Concepts", "Physical Development", "Science Exploration", "Problem Solving", "Public Speaking"], 
         color: "green" 
     },
@@ -538,7 +538,7 @@ const blogData = {
         subtitle: "A Smooth Transition to Formal Education",
         image: "images/blog/primary-preparation.jpg",
         content: `
-            <p class="mb-4">The transition from preschool to primary school is a significant milestone that requires careful preparation. Our UKG program specifically focuses on ensuring children are academically, socially, and emotionally ready for this important step.</p>
+            <p class="mb-4">The transition from preschool to primary school is a significant milestone that requires careful preparation. Our program specifically focuses on ensuring children are academically, socially, and emotionally ready for this important step.</p>
             <p class="mb-4">Key preparation areas include:</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
                 <li>Developing independence and self-help skills</li>
@@ -550,7 +550,7 @@ const blogData = {
             <p class="mb-6">We work closely with parents to ensure each child develops the confidence and skills needed to thrive in primary school, making this important transition as smooth and positive as possible.</p>
             <div class="bg-purple-50 p-4 crayon-border text-center">
                 <h4 class="font-bold text-xl mb-2">Ensure a smooth transition!</h4>
-                <p class="mb-3">Learn how our UKG program prepares children for primary school success.</p>
+                <p class="mb-3">Learn how our program prepares children for primary school success.</p>
                 <button class="open-contact-modal-from-blog crayon-button bg-purple-500 text-white font-bold px-6 py-3 text-lg">Call +91 91009 99312</button>
             </div>
         `
@@ -625,8 +625,8 @@ function createModal(data, container) {
                                 <option value="">Select a program</option>
                                 <option value="playgroup">Playgroup</option>
                                 <option value="nursery">Nursery</option>
-                                <option value="lkg">LKG</option>
-                                <option value="ukg">UKG</option>
+                                <option value="lkg">Pre-Primary 1</option>
+                                <option value="ukg">Pre-Primary 2</option>
                                 <option value="daycare">Day Care</option>
                             </select>
                         </div>
